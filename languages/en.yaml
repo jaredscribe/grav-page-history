@@ -1,0 +1,9 @@
+PLUGIN_PAGE_HISTORY:
+  GIT_DIR: Git repo path
+  GIT_DIR_HELP: Absolute path to the git repo tracking your pages. May be bare. Leave empty to walk up from the page file (dev checkouts only — production bare-repo deploys have no .git in the work tree).
+  WORK_TREE: Work tree root
+  WORK_TREE_HELP: What paths inside the git repo are relative to. Leave empty to derive from git_dir for a non-bare repo; required if git_dir is bare.
+  SCOPE_ROOT: Scope root
+  SCOPE_ROOT_HELP: Repo-relative directory the resolved page file must stay inside of. Prevents this plugin from reading git history outside your pages tree.
+  ROUTE_PREFIX: Route prefix
+  ROUTE_PREFIX_HELP: URL prefix for history views, e.g. /history/<page-route> and /history for site-wide recent changes.

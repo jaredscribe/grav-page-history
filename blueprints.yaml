@@ -1,0 +1,60 @@
+name: Page History
+type: plugin
+slug: page-history
+version: 0.1.0
+description: "Read-only, front-end-visible page history viewer backed by the page file's real git log — no revert, no writes."
+icon: history
+author:
+  name: Jared Essig
+homepage: https://github.com/jaredscribe/grav-plugin-page-history
+keywords: git, history, changelog, transparency, revisions
+license: MIT
+
+compatibility:
+  grav: ['2.0']
+
+dependencies:
+  - { name: grav, version: '>=2.0.0' }
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    git_dir:
+      type: text
+      size: large
+      label: PLUGIN_PAGE_HISTORY.GIT_DIR
+      help: PLUGIN_PAGE_HISTORY.GIT_DIR_HELP
+      placeholder: /home/user/repositories/site-content.git
+
+    work_tree:
+      type: text
+      size: large
+      label: PLUGIN_PAGE_HISTORY.WORK_TREE
+      help: PLUGIN_PAGE_HISTORY.WORK_TREE_HELP
+
+    scope_root:
+      type: text
+      size: medium
+      label: PLUGIN_PAGE_HISTORY.SCOPE_ROOT
+      help: PLUGIN_PAGE_HISTORY.SCOPE_ROOT_HELP
+      default: pages
+
+    route_prefix:
+      type: text
+      size: medium
+      label: PLUGIN_PAGE_HISTORY.ROUTE_PREFIX
+      help: PLUGIN_PAGE_HISTORY.ROUTE_PREFIX_HELP
+      default: /history
+      validate:
+        pattern: "/([a-z_-]+/?)+"

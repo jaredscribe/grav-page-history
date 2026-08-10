@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>History: {{ history_page.title }}</title>
+    <meta name="robots" content="noindex,follow">
+</head>
+<body>
+    <h1>History: <a href="{{ history_page.url }}">{{ history_page.title }}</a></h1>
+    {% if history_entries is not empty %}
+    <ul class="page-history__list">
+        {% for entry in history_entries %}
+        <li>
+            <code>{{ entry.short_hash }}</code>
+            <time datetime="{{ entry.date }}">{{ entry.date|date('Y-m-d H:i') }}</time>
+            {% if entry.author %}<span>{{ entry.author }}</span>{% endif %}
+            — {{ entry.subject }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No history available for this page.</p>
+    {% endif %}
+    <p><a href="{{ history_prefix }}">&larr; All recent changes</a></p>
+</body>
+</html>

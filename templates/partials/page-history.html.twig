@@ -1,0 +1,17 @@
+{% if history_entries is not empty %}
+<div class="page-history">
+    <details>
+        <summary>History ({{ history_entries|length }} revision{{ history_entries|length == 1 ? '' : 's' }})</summary>
+        <ul class="page-history__list">
+            {% for entry in history_entries %}
+            <li class="page-history__entry">
+                <code class="page-history__hash">{{ entry.short_hash }}</code>
+                <time class="page-history__date" datetime="{{ entry.date }}">{{ entry.date|date('Y-m-d') }}</time>
+                {% if entry.author %}<span class="page-history__author">{{ entry.author }}</span>{% endif %}
+                <span class="page-history__subject">{{ entry.subject }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </details>
+</div>
+{% endif %}

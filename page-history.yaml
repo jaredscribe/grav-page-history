@@ -1,0 +1,30 @@
+enabled: true
+
+# Absolute path to the git repo (may be bare). Empty = walk up from the page
+# file looking for .git (dev-checkout fallback only — see PLAN_REVIEW.md §1).
+git_dir: ''
+
+# What paths inside git_dir are relative to. Empty = derived from git_dir
+# for a non-bare repo (its own dirname); must be set explicitly for a bare repo.
+work_tree: ''
+
+# Repo-relative root the resolved file path must stay inside of.
+scope_root: pages
+
+# Route prefix for the history/recent-changes views: /<route_prefix>/<page-route>
+# and /<route_prefix> (site-wide recent changes).
+route_prefix: /history
+
+# Track file renames (git log --follow). Off by default — see PLAN_REVIEW.md §6
+# on how folder reordering can make --follow jump into an unrelated same-named
+# page file. Verified safe against a rename fixture in tests/, but still opt-in.
+follow_renames: false
+
+# Skip history for pages that are unpublished, non-routable, or carry an
+# `access:` frontmatter key. A page can also opt out individually with
+# `history: false` in its own frontmatter, regardless of this setting.
+respect_page_access: true
+
+# Max commits shown per page-history view / site-wide recent-changes view.
+pagination_count: 20
+
