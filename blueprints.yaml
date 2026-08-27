@@ -6,9 +6,9 @@ description: "Read-only, front-end-visible page history viewer backed by the pag
 icon: history
 author:
   name: Jared Essig
-homepage: https://github.com/jaredscribe/grav-plugin-page-history
+homepage: https://github.com/jaredscribe/grav-page-history
 keywords: git, history, changelog, transparency, revisions
-license: MIT
+license: GPL-3.0
 
 compatibility:
   grav: ['2.0']
